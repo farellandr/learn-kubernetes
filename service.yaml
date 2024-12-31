@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: coba-service
+spec:
+  type: ClusterIP
+  selector:
+    name: test-nginx
+  ports:
+    - port: 8080
+      targetPort: 80
