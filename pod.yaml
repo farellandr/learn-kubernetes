@@ -4,6 +4,10 @@ metadata:
   name: test-nginx
   labels:
     name: test-nginx
+    version: 0.0.1
+    environment: development
+  annotations:
+    description: test-nginx is a pod i created for learning kubernetes
   namespace: coba-kubernetes
 spec:
   containers:
