@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: coba-replicaset
+  labels:
+    app: test-nginx
+    name: coba-replicaset
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: test-nginx
+  template:
+    metadata:
+      name: test-nginx
+      labels:
+        name: test-nginx
+        version: 0.0.1
+        environment: development
+      annotations:
+        description: test-nginx is a pod i created for learning kubernetes
+      namespace: coba-kubernetes
+    spec:
+      containers:
+        - name: test-nginx
+          image: nginx
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+          ports:
+            - containerPort: 80
